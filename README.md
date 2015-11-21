@@ -1,11 +1,11 @@
 # Fetch Timeline CLI
 
-<h3 align="center">
+<p align="center">
   <br>
   <img src="https://i.imgur.com/Mh13XWB.gif" alt="fetch-timeline-cli">
   <br>
   <br>
-</h1>
+</p>
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/fetch-timeline-cli.svg?style=flat-square)
 [![Dependency status](http://img.shields.io/david/Kikobeats/fetch-timeline-cli.svg?style=flat-square)](https://david-dm.org/Kikobeats/fetch-timeline-cli)
