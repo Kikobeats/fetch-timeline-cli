@@ -23,7 +23,7 @@ npm install -g fetch-timeline-cli
 
 ## Related
 
-- [fetch-timeline]() – Fetch the timeline of a Twitter user.
+- [fetch-timeline](https://github.com/Kikobeats/fetch-timeline) – Fetch the timeline of a Twitter user.
 
 ## License
 
