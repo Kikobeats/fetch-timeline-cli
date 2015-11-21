@@ -4,7 +4,6 @@
   <br>
   <img src="https://i.imgur.com/Mh13XWB.gif" alt="fetch-timeline-cli">
   <br>
-  <br>
 </p>
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/fetch-timeline-cli.svg?style=flat-square)
