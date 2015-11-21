@@ -1,6 +1,6 @@
-# fetch-timeline-cli
+# Fetch Timeline CLI
 
-<h1 align="center">
+<h3 align="center">
   <br>
   <img src="https://i.imgur.com/Mh13XWB.gif" alt="fetch-timeline-cli">
   <br>
