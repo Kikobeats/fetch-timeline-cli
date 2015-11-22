@@ -28,9 +28,8 @@
     "coffee-script": "latest",
     "existential": "latest",
     "fetch-timeline": "latest",
-    "json-future": "latest",
     "meow": "latest",
-    "progress": "latest",
+    "tildify": "latest",
     "update-notifier": "latest"
   },
   "devDependencies": {

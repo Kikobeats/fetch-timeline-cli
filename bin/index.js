@@ -4,9 +4,8 @@
 var fs             = require('fs');
 var Acho           = require('acho');
 var meow           = require('meow');
-var ProgressBar    = require('progress');
+var tildify        = require('tildify');
 var exists         = require('existential');
-var jsonFuture     = require('json-future');
 var fetchTimeline  = require('fetch-timeline');
 var pkg            = require('../package.json');
 var updateNotifier = require('update-notifier');
@@ -36,7 +35,6 @@ var save;
 var file;
 var output;
 var options;
-var identifier = cli.input.pop() || null;
 
 var acho = new Acho({
   keyword: 'fetch-timeline',
@@ -70,6 +68,7 @@ var checkCredentials = function() {
 
 var determineParams = function() {
   var params = {};
+  var identifier = cli.input.pop();
 
   if (identifier) {
     if (typeof identifier === 'string')
@@ -95,7 +94,7 @@ var determineParams = function() {
 };
 
 var errorException = function(err) {
-  acho.err(err.message);
+  acho.error(err.message);
   process.exit(err.errno);
 };
 
@@ -118,43 +117,29 @@ options = {
   }
 };
 
-var progressMessage;
-
-if (identifier)
-  progressMessage = "fetching '" + identifier + "' ";
-else
-  progressMessage = '  fetching ';
-
-progressMessage += 'timeline [:bar] :percent :elapseds';
-
-var progressBar = new ProgressBar(progressMessage, {
-  total: params.limit,
-  width: 20
-});
-
 var timeline = fetchTimeline(options);
 
-timeline.on('data', function(chunk) {
-  progressBar.tick(chunk.length);
-});
-
-timeline.on('end', function(timeline) {
-  jsonFuture.loadAsync(timeline.tweets.path, function(err, tweets) {
-    if (err) errorException(err);
-    timeline.tweets.cleanup(function() {
-      timeline.tweets = tweets;
-
-      lineBreak();
-      if (output) console.log(timeline.tweets);
-      if (!save) process.exit();
-
-      var filepath = file || timeline.user.screen_name + '_' + timeline.firstTweetDate.toYMD() + '.json';
-      jsonFuture.saveAsync(filepath, timeline.tweets, function(err) {
-        if (err) errorException(err);
-        acho.success("Saved at '" + filepath + "'.");
-      });
-    });
+if (output) {
+  timeline.on('data', function(chunk) {
+    process.stdout.write(chunk);
   });
-});
+}
 
 timeline.on('error', errorException);
+
+timeline.on('fetched', function(timeline) {
+  if (!save) return timeline.tweets.cleanup(process.exit());
+
+  var filepath = file || timeline.user.screen_name + '_' + timeline.firstTweetDate.toYMD() + '.json';
+  filepath = process.cwd() + '/' + filepath;
+
+  fs.rename(timeline.tweets.path, filepath, function(err) {
+    if (err) errorException(err);
+    if (output) {
+      lineBreak();
+      lineBreak();
+    }
+    acho.success("Saved at '" + tildify(filepath) + "'.");
+    return process.exit();
+  });
+});
