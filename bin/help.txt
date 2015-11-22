@@ -5,13 +5,11 @@ options:
 -l or --limit     Limit the number of tweets to get
                   By default this value is 200. Max allowed: 3200.
 
--o or --output    Output the tweets get from the user.
-
 -s or --save      Save the output in a filename.
 
--f or --file      Used to specify the filename if the flag 'save' is present.
+-f or --file      Used to specify the file name.
                   By default the filename is based in the user screen_name and first tweet date.
 
---no-rts     Exclude RT's from the sample of tweets. Included by default.
+--no-rts          Exclude RT's from the sample of tweets. Included by default.
 
---no-replies Exclude Replies from the sample of tweets. Included by default.
+--no-replies      Exclude Replies from the sample of tweets. Included by default.

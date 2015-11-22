@@ -4,7 +4,6 @@
 var fs             = require('fs');
 var Acho           = require('acho');
 var meow           = require('meow');
-var tildify        = require('tildify');
 var exists         = require('existential');
 var fetchTimeline  = require('fetch-timeline');
 var pkg            = require('../package.json');
@@ -33,7 +32,6 @@ updateNotifier({pkg: cli.pkg}).notify();
 
 var save;
 var file;
-var output;
 var options;
 
 var acho = new Acho({
@@ -78,7 +76,6 @@ var determineParams = function() {
   }
 
   save = cli.flags.save || cli.flags.s;
-  output = cli.flags.output || cli.flags.o;
   file = cli.flags.file || cli.flags.f;
 
   params.limit = cli.flags.limit || cli.flags.l || 3200;
@@ -119,27 +116,20 @@ options = {
 
 var timeline = fetchTimeline(options);
 
-if (output) {
-  timeline.on('data', function(chunk) {
-    process.stdout.write(chunk);
-  });
-}
+timeline.on('data', function(chunk) {
+  process.stdout.write(chunk);
+});
 
 timeline.on('error', errorException);
 
 timeline.on('fetched', function(timeline) {
   if (!save) return timeline.tweets.cleanup(process.exit());
 
-  var filepath = file || timeline.user.screen_name + '_' + timeline.firstTweetDate.toYMD() + '.json';
+  var filepath = file || timeline.user.screen_name + '.' + timeline.firstTweetDate.toYMD() + '.json';
   filepath = process.cwd() + '/' + filepath;
 
   fs.rename(timeline.tweets.path, filepath, function(err) {
     if (err) errorException(err);
-    if (output) {
-      lineBreak();
-      lineBreak();
-    }
-    acho.success("Saved at '" + tildify(filepath) + "'.");
     return process.exit();
   });
 });

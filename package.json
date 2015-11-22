@@ -29,7 +29,6 @@
     "existential": "latest",
     "fetch-timeline": "latest",
     "meow": "latest",
-    "tildify": "latest",
     "update-notifier": "latest"
   },
   "devDependencies": {
