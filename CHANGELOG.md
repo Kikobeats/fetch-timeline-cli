@@ -1,7 +1,16 @@
+<a name="0.2.1"></a>
+## 0.2.1 (2015-11-22)
+
+
+* output by default ([1b4bf24](https://github.com/kikobeats/fetch-timeline-cli/commit/1b4bf24))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2015-11-22)
 
 
+* 0.2.0 releases ([27a1948](https://github.com/kikobeats/fetch-timeline-cli/commit/27a1948))
 * little refactor ([bb8f36d](https://github.com/kikobeats/fetch-timeline-cli/commit/bb8f36d))
 * updated ([76c685d](https://github.com/kikobeats/fetch-timeline-cli/commit/76c685d))
 * updated ([f41f13b](https://github.com/kikobeats/fetch-timeline-cli/commit/f41f13b))
