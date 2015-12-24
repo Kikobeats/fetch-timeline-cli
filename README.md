@@ -2,7 +2,7 @@
 
 <p align="center">
   <br>
-  <img src="" alt="fetch-timeline-cli">
+  <img src="http://g.recordit.co/fUTguF6FTQ.gif" alt="fetch-timeline-cli">
   <br>
 </p>
 
@@ -19,6 +19,8 @@
 ```bash
 npm install fetch-timeline-cli --global
 ```
+
+For know how to use, write `fetch-timeline --help`
 
 ## Related
 
