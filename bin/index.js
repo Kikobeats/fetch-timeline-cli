@@ -1,135 +1,146 @@
 #!/usr/bin/env node
-'use strict';
 
-var fs             = require('fs');
-var Acho           = require('acho');
-var meow           = require('meow');
-var exists         = require('existential');
-var fetchTimeline  = require('fetch-timeline');
-var pkg            = require('../package.json');
-var updateNotifier = require('update-notifier');
+'use strict'
 
-Date.prototype.toYMD = function() {
-  var year, month, day;
-  year = String(this.getFullYear());
-  month = String(this.getMonth() + 1);
-  if (month.length == 1) {
-    month = "0" + month;
-  }
-  day = String(this.getDate());
-  if (day.length == 1) {
-    day = "0" + day;
-  }
-  return year + "-" + month + "-" + day;
-};
+var fs = require('fs')
+var Whoops = require('whoops')
+var format = require('util').format
+var pkg = require('../package.json')
+var JSONStream = require('JSONStream')
+var logSymbols = require('log-symbols')
+var multi = require('multi-write-stream')
+var fetchTimeline = require('fetch-timeline')
+var existsDefault = require('existential-default')
 
-var cli = meow({
+require('update-notifier')({pkg: pkg}).notify()
+
+var cli = require('meow')({
   pkg: pkg,
-  help: fs.readFileSync(__dirname + '/help.txt', 'utf8')
-});
+  help: fs.readFileSync(__dirname + '/help.txt', 'utf8'),
+}, {
+  alias: {
+    f: 'file',
+    s: 'save'
+  }
+})
 
-updateNotifier({pkg: cli.pkg}).notify();
+var CREDENTIALS = [
+  'TWITTER_CONSUMER_KEY',
+  'TWITTER_CONSUMER_SECRET',
+  'TWITTER_ACCESS_TOKEN',
+  'TWITTER_ACCESS_TOKEN_SECRET'
+]
 
-var save;
-var file;
-var options;
+Date.prototype.toYMD = function () {
+  var year, month, day
+  year = String(this.getFullYear())
+  month = String(this.getMonth() + 1)
+  if (month.length === 1) month = '0' + month
+  day = String(this.getDate())
+  if (day.length === 1) day = '0' + day
+  return year + '-' + month + '-' + day
+}
 
-var acho = new Acho({
-  keyword: 'fetch-timeline',
-  align: false
-});
+function lineBreak () {
+  process.stdout.write('\n')
+}
 
-var lineBreak = function() {
-  process.stdout.write('\n');
-};
+var log = (function () {
+  var acho = require('acho')({
+    align: false,
+    keyword: ''
+  })
 
-var checkCredentials = function() {
-
-  var envs = [
-    'TWITTER_CONSUMER_KEY',
-    'TWITTER_CONSUMER_SECRET',
-    'TWITTER_ACCESS_TOKEN',
-    'TWITTER_ACCESS_TOKEN_SECRET'
-  ];
-
-  var envError = false;
-
-  envs.forEach(function(variable) {
-    if (!process.env[variable]) {
-      acho.error(' You need to provide %s credential as environment variable.', variable);
-      envError = true;
+  return {
+    success: function (message) {
+      acho.success(logSymbols.success, message)
+    },
+    error: function (err, code) {
+      if (!Array.isArray(err)) err = [err]
+      err.forEach(function (err) {
+        acho.error(logSymbols.error, err)
+      })
+      process.exit(code || 1)
     }
-  });
+  }
+})()
 
-  if (envError) process.exit(1);
-};
+function checkEnv (envs) {
+  var errors = []
 
-var determineParams = function() {
-  var params = {};
-  var identifier = cli.input.pop();
+  envs.forEach(function (env) {
+    if (!process.env[env]) {
+      var message = format("You need to provide '%s' as environment variable.", env)
+      errors.push(Whoops(message))
+    }
+  })
+
+  if (errors.length > 0) return log.error(errors)
+}
+
+var identifier = cli.input.pop()
+
+function getTwitterParams () {
+  var params = {}
 
   if (identifier) {
     if (typeof identifier === 'string')
-      params.screen_name = identifier;
+      params.screen_name = identifier
     else
-      params.user_id = identifier;
+      params.user_id = identifier
   }
 
-  save = cli.flags.save || cli.flags.s;
-  file = cli.flags.file || cli.flags.f;
+  params.limit = cli.flags.limit || cli.flags.l
 
-  params.limit = cli.flags.limit || cli.flags.l || 3200;
-  if (params.limit > 3200) params.limit = 3200;
+  var replies = existsDefault(cli.flags.replies, true)
+  var rts = existsDefault(cli.flags.rts, true)
 
-  var replies = exists(cli.flags.replies) ? cli.flags.replies : true;
-  var rts = exists(cli.flags.rts) ? cli.flags.rts : true;
+  params.include_rts = rts
+  params.exclude_replies = !replies
 
-  params.include_rts = rts;
-  params.exclude_replies = !replies;
+  return params
+}
 
-  return params;
-};
+lineBreak()
+checkEnv(CREDENTIALS)
 
-var errorException = function(err) {
-  acho.error(err.message);
-  process.exit(err.errno);
-};
+var params = getTwitterParams()
 
-lineBreak();
-checkCredentials();
-var params = determineParams();
+var credentials = {
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  accessToken: process.env.TWITTER_ACCESS_TOKEN,
+  accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+}
 
-options = {
-  params: params,
+var timeline = fetchTimeline(params, credentials)
+var writables = [ process.stdout ]
+var finalMessage
 
-  credentials: {
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    accessToken: process.env.TWITTER_ACCESS_TOKEN,
-    accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-  },
+if (cli.flags.save) {
+  var filename = cli.flags.file || [identifier, new Date().toYMD(), 'json'].join('.')
+  finalMessage = format("Saved at '%s'.", filename)
+  writables.push(fs.createWriteStream(filename))
+}
 
-  temFile: {
-    ext: '.json'
-  }
-};
+var writable = multi(writables)
 
-var timeline = fetchTimeline(options);
+timeline
+  .pipe(JSONStream.stringify('[', ',\n', ']\n', 2))
+  .pipe(writable)
 
-timeline.on('data', function(chunk) {
-  process.stdout.write(chunk);
-});
+timeline.on('error', function (err) {
+  // TODO: Create a better error message with res headers:
+  // X-Rate-Limit-Limit: the rate limit ceiling for that given request
+  // X-Rate-Limit-Remaining: the number of requests left for the 15 minute window
+  // X-Rate-Limit-Reset: the remaining window before the rate limit resets in UTC epoch seconds
+  var message = err.statusCode + ': ' + err.message
+  log.error(message, err.code)
+})
 
-timeline.on('error', errorException);
-
-timeline.on('fetched', function(timeline) {
-  if (!save) return timeline.tweets.cleanup(process.exit());
-
-  var filepath = file || timeline.user.screen_name + '.' + timeline.firstTweetDate.toYMD() + '.json';
-  filepath = process.cwd() + '/' + filepath;
-
-  fs.rename(timeline.tweets.path, filepath, function(err) {
-    if (err) errorException(err);
-    return process.exit();
-  });
-});
+if (finalMessage) {
+  timeline.on('end', function () {
+    lineBreak()
+    log.success(finalMessage)
+  })
+}

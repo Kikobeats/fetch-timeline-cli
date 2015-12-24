@@ -24,12 +24,15 @@
     "terminal"
   ],
   "dependencies": {
-    "acho": "latest",
-    "coffee-script": "latest",
-    "existential": "latest",
+    "JSONStream": "^1.0.7",
+    "acho": "^2.4.1",
+    "end-of-stream": "^1.1.0",
+    "existential": "^1.0.3",
     "fetch-timeline": "latest",
-    "meow": "latest",
-    "update-notifier": "latest"
+    "meow": "^3.6.0",
+    "multi-write-stream": "^2.0.1",
+    "update-notifier": "^0.6.0",
+    "whoops": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "latest",

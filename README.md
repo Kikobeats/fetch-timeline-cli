@@ -2,7 +2,7 @@
 
 <p align="center">
   <br>
-  <img src="https://i.imgur.com/Mh13XWB.gif" alt="fetch-timeline-cli">
+  <img src="" alt="fetch-timeline-cli">
   <br>
 </p>
 
@@ -12,12 +12,12 @@
 [![NPM Status](http://img.shields.io/npm/dm/fetch-timeline-cli.svg?style=flat-square)](https://www.npmjs.org/package/fetch-timeline-cli)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Fetch Twitter User Timeline from your Terminal.
+> Fetch Twitter User Timeline from your terminal.
 
 ## Install
 
 ```bash
-npm install -g fetch-timeline-cli
+npm install fetch-timeline-cli --global
 ```
 
 ## Related
