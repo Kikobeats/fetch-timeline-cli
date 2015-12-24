@@ -16,7 +16,7 @@ require('update-notifier')({pkg: pkg}).notify()
 
 var cli = require('meow')({
   pkg: pkg,
-  help: fs.readFileSync(__dirname + '/help.txt', 'utf8'),
+  help: fs.readFileSync(__dirname + '/help.txt', 'utf8')
 }, {
   alias: {
     f: 'file',
