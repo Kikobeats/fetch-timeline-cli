@@ -1,6 +1,6 @@
 {
   "name": "fetch-timeline-cli",
-  "description": "Fetch Twitter User Timeline from your Terminal.",
+  "description": "Fetch Twitter user's timeline from your terminal",
   "homepage": "https://github.com/Kikobeats/fetch-timeline-cli",
   "version": "0.3.0",
   "bin": {

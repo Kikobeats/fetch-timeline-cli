@@ -12,7 +12,7 @@
 [![NPM Status](http://img.shields.io/npm/dm/fetch-timeline-cli.svg?style=flat-square)](https://www.npmjs.org/package/fetch-timeline-cli)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Fetch Twitter User Timeline from your terminal.
+> Fetch Twitter user's timeline from your terminal
 
 ## Install
 
@@ -24,7 +24,7 @@ For know how to use, write `fetch-timeline --help`
 
 ## Related
 
-- [fetch-timeline](https://github.com/Kikobeats/fetch-timeline) – Fetch the timeline of a Twitter user.
+- [fetch-timeline](https://github.com/Kikobeats/fetch-timeline) – Readable Stream that content tweets fetched from a Twitter user timeline.
 
 ## License
 
