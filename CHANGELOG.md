@@ -1,7 +1,17 @@
+<a name="0.3.1"></a>
+## 0.3.1 (2015-12-25)
+
+
+* Avoid ^ in favor of ~ ([543c608](https://github.com/kikobeats/fetch-timeline-cli/commit/543c608))
+* Improve descriptions ([b38404c](https://github.com/kikobeats/fetch-timeline-cli/commit/b38404c))
+
+
+
 <a name="0.3.0"></a>
 # 0.3.0 (2015-12-24)
 
 
+* 0.3.0 releases ([929682f](https://github.com/kikobeats/fetch-timeline-cli/commit/929682f))
 * Add gif ([8bb597f](https://github.com/kikobeats/fetch-timeline-cli/commit/8bb597f))
 * Add missing dependencies and lock version ([5018226](https://github.com/kikobeats/fetch-timeline-cli/commit/5018226))
 * Fix typo ([19319bf](https://github.com/kikobeats/fetch-timeline-cli/commit/19319bf))
@@ -34,9 +44,9 @@
 
 
 * 0.1.0 releases ([ede8818](https://github.com/kikobeats/fetch-timeline-cli/commit/ede8818))
+* first commit ([64062e4](https://github.com/kikobeats/fetch-timeline-cli/commit/64062e4))
 * Update README.md ([7d2938b](https://github.com/kikobeats/fetch-timeline-cli/commit/7d2938b))
 * Update README.md ([ae85c43](https://github.com/kikobeats/fetch-timeline-cli/commit/ae85c43))
-* first commit ([64062e4](https://github.com/kikobeats/fetch-timeline-cli/commit/64062e4))
 
 
 
