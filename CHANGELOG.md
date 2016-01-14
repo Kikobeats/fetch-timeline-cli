@@ -1,7 +1,23 @@
+<a name="0.3.2"></a>
+## 0.3.2 (2016-01-14)
+
+
+### chore
+
+* chore(package): update dependencies ([629856f](https://github.com/kikobeats/fetch-timeline-cli/commit/629856f))
+* chore(package): update whoops to version 1.1.0 ([2865c35](https://github.com/kikobeats/fetch-timeline-cli/commit/2865c35))
+
+* Little refactor ([bd29232](https://github.com/kikobeats/fetch-timeline-cli/commit/bd29232))
+* Merge pull request #1 from Kikobeats/greenkeeper-whoops-1.1.0 ([12aef5e](https://github.com/kikobeats/fetch-timeline-cli/commit/12aef5e))
+* Merge pull request #2 from Kikobeats/greenkeeper-update-all ([f12daa2](https://github.com/kikobeats/fetch-timeline-cli/commit/f12daa2))
+
+
+
 <a name="0.3.1"></a>
 ## 0.3.1 (2015-12-25)
 
 
+* 0.3.1 releases ([9394790](https://github.com/kikobeats/fetch-timeline-cli/commit/9394790))
 * Avoid ^ in favor of ~ ([543c608](https://github.com/kikobeats/fetch-timeline-cli/commit/543c608))
 * Improve descriptions ([b38404c](https://github.com/kikobeats/fetch-timeline-cli/commit/b38404c))
 
