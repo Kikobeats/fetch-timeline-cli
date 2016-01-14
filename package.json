@@ -30,7 +30,7 @@
     "existential": "~1.0.3",
     "fetch-timeline": "~0.3.0",
     "log-symbols": "~1.0.2",
-    "meow": "~3.6.0",
+    "meow": "~3.7.0",
     "multi-write-stream": "~2.0.1",
     "update-notifier": "~0.6.0",
     "whoops": "~1.1.0"
