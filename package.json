@@ -35,16 +35,18 @@
     "update-notifier": "~0.6.0",
     "whoops": "~1.1.0"
   },
-  "devDependencies": {
-    "mocha": "latest",
-    "should": "latest"
-  },
   "engines": {
     "node": ">= 0.10.0",
     "npm": ">= 1.4.0"
   },
   "scripts": {
-    "test": "sh test/test.sh"
+    "clean": "rm -rf node_modules",
+    "lint": "standard lib",
+    "pretest": "npm run lint",
+    "test": "exit 0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "git-dirty": "~1.0.0"
+  }
 }
