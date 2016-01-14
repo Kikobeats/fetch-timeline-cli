@@ -33,7 +33,7 @@
     "meow": "~3.6.0",
     "multi-write-stream": "~2.0.1",
     "update-notifier": "~0.6.0",
-    "whoops": "~1.0.1"
+    "whoops": "~1.1.0"
   },
   "devDependencies": {
     "mocha": "latest",
