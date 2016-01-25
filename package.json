@@ -47,6 +47,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "git-dirty": "~1.0.0"
+    "git-dirty": "~1.0.1"
   }
 }
