@@ -1,14 +1,14 @@
-Usage: $ fetch-timeline <user_id|screen_name> [options]
+Usage:
+  $ fetch-timeline <user_id|screen_name> [options]
 
-options:
+Options
+  -l or --limit     Limit the number of tweets to get.
 
--l or --limit     Limit the number of tweets to get.
+  -s or --save      Save the output in a filename.
 
--s or --save      Save the output in a filename.
+  -f or --file      Used to specify the file name.
+                    By default the filename is based in the user screen_name.
 
--f or --file      Used to specify the file name.
-                  By default the filename is based in the user screen_name.
+  --no-rts          Exclude RT's from the sample of tweets. Included by default.
 
---no-rts          Exclude RT's from the sample of tweets. Included by default.
-
---no-replies      Exclude Replies from the sample of tweets. Included by default.
+  --no-replies      Exclude Replies from the sample of tweets. Included by default.

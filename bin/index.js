@@ -7,7 +7,6 @@ var Whoops = require('whoops')
 var format = require('util').format
 var pkg = require('../package.json')
 var JSONStream = require('JSONStream')
-var logSymbols = require('log-symbols')
 var multi = require('multi-write-stream')
 var fetchTimeline = require('fetch-timeline')
 var existsDefault = require('existential-default')
@@ -45,25 +44,18 @@ function lineBreak () {
   process.stdout.write('\n')
 }
 
-var log = (function () {
-  var acho = require('acho')({
-    align: false,
-    keyword: ''
-  })
+var acho = require('acho')({
+  align: false,
+  keyword: 'symbol'
+})
 
-  return {
-    success: function (message) {
-      acho.success(logSymbols.success, message)
-    },
-    error: function (err, code) {
-      if (!Array.isArray(err)) err = [err]
-      err.forEach(function (err) {
-        acho.error(logSymbols.error, err)
-      })
-      process.exit(code || 1)
-    }
-  }
-})()
+function exitOnError (err, code) {
+  if (!Array.isArray(err)) err = [err]
+  err.forEach(function (err) {
+    acho.error(err)
+  })
+  process.exit(code || 1)
+}
 
 function checkEnv (envs) {
   var errors = []
@@ -75,7 +67,7 @@ function checkEnv (envs) {
     }
   })
 
-  if (errors.length > 0) return log.error(errors)
+  if (errors.length > 0) return exitOnError(errors)
 }
 
 var identifier = cli.input.pop()
@@ -135,12 +127,12 @@ timeline.on('error', function (err) {
   // X-Rate-Limit-Remaining: the number of requests left for the 15 minute window
   // X-Rate-Limit-Reset: the remaining window before the rate limit resets in UTC epoch seconds
   var message = err.statusCode + ': ' + err.message
-  log.error(message, err.code)
+  exitOnError(message, err.code)
 })
 
 if (finalMessage) {
   timeline.on('end', function () {
     lineBreak()
-    log.success(finalMessage)
+    acho.success(finalMessage)
   })
 }
