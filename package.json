@@ -7,21 +7,24 @@
     "fetch-timeline": "./bin/index.js"
   },
   "author": {
-    "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
+    "email": "josefrancisco.verdu@gmail.com",
     "url": "https://github.com/Kikobeats"
   },
-  "repository": "Kikobeats/fetch-timeline-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikobeats/fetch-timeline-cli.git"
+  },
   "bugs": {
     "url": "https://github.com/Kikobeats/fetch-timeline-cli/issues"
   },
   "keywords": [
     "Twitter",
-    "fetch",
-    "user",
-    "timeline",
     "cli",
-    "terminal"
+    "fetch",
+    "terminal",
+    "timeline",
+    "user"
   ],
   "dependencies": {
     "JSONStream": "~1.0.7",
@@ -34,9 +37,11 @@
     "update-notifier": "~0.6.0",
     "whoops": "~1.1.0"
   },
+  "devDependencies": {
+    "git-dirty": "latest"
+  },
   "engines": {
-    "node": ">= 0.10.0",
-    "npm": ">= 1.4.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "clean": "rm -rf node_modules",
@@ -44,8 +49,5 @@
     "pretest": "npm run lint",
     "test": "exit 0"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "git-dirty": "~1.0.1"
-  }
+  "license": "MIT"
 }
