@@ -1,3 +1,24 @@
+<a name="0.3.3"></a>
+## 0.3.3 (2016-01-28)
+
+
+### chore
+
+* chore(package): update acho to version 2.5.1 ([69d2b61](https://github.com/kikobeats/fetch-timeline-cli/commit/69d2b61))
+* chore(package): update fetch-timeline to version 0.3.1 ([0e6b281](https://github.com/kikobeats/fetch-timeline-cli/commit/0e6b281))
+* chore(package): update fetch-timeline to version 0.3.2 ([4888e49](https://github.com/kikobeats/fetch-timeline-cli/commit/4888e49))
+* chore(package): update git-dirty to version 1.0.1 ([17aedbb](https://github.com/kikobeats/fetch-timeline-cli/commit/17aedbb))
+
+* Merge branch 'master' of github.com:Kikobeats/fetch-timeline-cli ([2afdf1b](https://github.com/kikobeats/fetch-timeline-cli/commit/2afdf1b))
+* Merge pull request #3 from Kikobeats/greenkeeper-fetch-timeline-0.3.1 ([48d046b](https://github.com/kikobeats/fetch-timeline-cli/commit/48d046b))
+* Merge pull request #4 from Kikobeats/greenkeeper-git-dirty-1.0.1 ([b40ca3f](https://github.com/kikobeats/fetch-timeline-cli/commit/b40ca3f))
+* Merge pull request #7 from Kikobeats/greenkeeper-acho-2.5.1 ([4992a4b](https://github.com/kikobeats/fetch-timeline-cli/commit/4992a4b))
+* Merge pull request #8 from Kikobeats/greenkeeper-fetch-timeline-0.3.2 ([e47fd1a](https://github.com/kikobeats/fetch-timeline-cli/commit/e47fd1a))
+* Remove unnecessary dependency ([45b429d](https://github.com/kikobeats/fetch-timeline-cli/commit/45b429d))
+* update scripts ([515121d](https://github.com/kikobeats/fetch-timeline-cli/commit/515121d))
+
+
+
 <a name="0.3.2"></a>
 ## 0.3.2 (2016-01-14)
 
@@ -7,6 +28,7 @@
 * chore(package): update dependencies ([629856f](https://github.com/kikobeats/fetch-timeline-cli/commit/629856f))
 * chore(package): update whoops to version 1.1.0 ([2865c35](https://github.com/kikobeats/fetch-timeline-cli/commit/2865c35))
 
+* 0.3.2 releases ([d7a678a](https://github.com/kikobeats/fetch-timeline-cli/commit/d7a678a))
 * Little refactor ([bd29232](https://github.com/kikobeats/fetch-timeline-cli/commit/bd29232))
 * Merge pull request #1 from Kikobeats/greenkeeper-whoops-1.1.0 ([12aef5e](https://github.com/kikobeats/fetch-timeline-cli/commit/12aef5e))
 * Merge pull request #2 from Kikobeats/greenkeeper-update-all ([f12daa2](https://github.com/kikobeats/fetch-timeline-cli/commit/f12daa2))
