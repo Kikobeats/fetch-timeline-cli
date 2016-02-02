@@ -1,3 +1,16 @@
+<a name="0.3.4"></a>
+## 0.3.4 (2016-02-02)
+
+
+### chore
+
+* chore(package): update whoops to version 1.1.1 ([3e8a5a3](https://github.com/kikobeats/fetch-timeline-cli/commit/3e8a5a3))
+
+* Merge pull request #9 from Kikobeats/greenkeeper-whoops-1.1.1 ([8a57ab7](https://github.com/kikobeats/fetch-timeline-cli/commit/8a57ab7))
+* update deps ([e0e214c](https://github.com/kikobeats/fetch-timeline-cli/commit/e0e214c))
+
+
+
 <a name="0.3.3"></a>
 ## 0.3.3 (2016-01-28)
 
@@ -14,6 +27,7 @@
 * Merge pull request #4 from Kikobeats/greenkeeper-git-dirty-1.0.1 ([b40ca3f](https://github.com/kikobeats/fetch-timeline-cli/commit/b40ca3f))
 * Merge pull request #7 from Kikobeats/greenkeeper-acho-2.5.1 ([4992a4b](https://github.com/kikobeats/fetch-timeline-cli/commit/4992a4b))
 * Merge pull request #8 from Kikobeats/greenkeeper-fetch-timeline-0.3.2 ([e47fd1a](https://github.com/kikobeats/fetch-timeline-cli/commit/e47fd1a))
+* Release 0.3.3 ([745f6e3](https://github.com/kikobeats/fetch-timeline-cli/commit/745f6e3))
 * Remove unnecessary dependency ([45b429d](https://github.com/kikobeats/fetch-timeline-cli/commit/45b429d))
 * update scripts ([515121d](https://github.com/kikobeats/fetch-timeline-cli/commit/515121d))
 
