@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "JSONStream": "~1.0.7",
-    "acho": "~2.5.1",
+    "acho": "~2.5.3",
     "end-of-stream": "~1.1.0",
     "existential": "~1.0.3",
     "fetch-timeline": "~0.3.3",
