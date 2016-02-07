@@ -35,7 +35,7 @@
     "meow": "~3.7.0",
     "multi-write-stream": "~2.0.1",
     "update-notifier": "~0.6.0",
-    "whoops": "~2.0.0"
+    "whoops": "~2.0.1"
   },
   "devDependencies": {
     "git-dirty": "latest"
