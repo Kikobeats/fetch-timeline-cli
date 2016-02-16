@@ -1,3 +1,21 @@
+<a name="0.3.5"></a>
+## 0.3.5 (2016-02-16)
+
+
+### chore
+
+* chore(package): update acho to version 2.5.3 ([92db7aa](https://github.com/kikobeats/fetch-timeline-cli/commit/92db7aa))
+* chore(package): update fetch-timeline to version 0.3.4 ([186f856](https://github.com/kikobeats/fetch-timeline-cli/commit/186f856))
+* chore(package): update whoops to version 2.0.0 ([e2d455b](https://github.com/kikobeats/fetch-timeline-cli/commit/e2d455b))
+* chore(package): update whoops to version 2.0.1 ([c16512e](https://github.com/kikobeats/fetch-timeline-cli/commit/c16512e))
+
+* Merge pull request #10 from Kikobeats/greenkeeper-acho-2.5.3 ([61c9824](https://github.com/kikobeats/fetch-timeline-cli/commit/61c9824))
+* Merge pull request #11 from Kikobeats/greenkeeper-whoops-2.0.0 ([eff1307](https://github.com/kikobeats/fetch-timeline-cli/commit/eff1307))
+* Merge pull request #12 from Kikobeats/greenkeeper-whoops-2.0.1 ([869552a](https://github.com/kikobeats/fetch-timeline-cli/commit/869552a))
+* Merge pull request #13 from Kikobeats/greenkeeper-fetch-timeline-0.3.4 ([bcce8fd](https://github.com/kikobeats/fetch-timeline-cli/commit/bcce8fd))
+
+
+
 <a name="0.3.4"></a>
 ## 0.3.4 (2016-02-02)
 
@@ -7,6 +25,7 @@
 * chore(package): update whoops to version 1.1.1 ([3e8a5a3](https://github.com/kikobeats/fetch-timeline-cli/commit/3e8a5a3))
 
 * Merge pull request #9 from Kikobeats/greenkeeper-whoops-1.1.1 ([8a57ab7](https://github.com/kikobeats/fetch-timeline-cli/commit/8a57ab7))
+* Release 0.3.4 ([4ad3fbc](https://github.com/kikobeats/fetch-timeline-cli/commit/4ad3fbc))
 * update deps ([e0e214c](https://github.com/kikobeats/fetch-timeline-cli/commit/e0e214c))
 
 
