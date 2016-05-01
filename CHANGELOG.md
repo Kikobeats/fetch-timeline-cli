@@ -1,3 +1,20 @@
+<a name="0.3.6"></a>
+## 0.3.6 (2016-05-01)
+
+* Update to Acho v3 ([99fe9f9](https://github.com/kikobeats/fetch-timeline-cli/commit/99fe9f9))
+* chore(package): update acho to version 2.6.0 ([4a17863](https://github.com/kikobeats/fetch-timeline-cli/commit/4a17863))
+* chore(package): update acho to version 2.6.1 ([212ec17](https://github.com/kikobeats/fetch-timeline-cli/commit/212ec17))
+* chore(package): update acho to version 2.7.0 ([ad3436a](https://github.com/kikobeats/fetch-timeline-cli/commit/ad3436a))
+* chore(package): update acho to version 2.7.1 ([1d3534e](https://github.com/kikobeats/fetch-timeline-cli/commit/1d3534e))
+* chore(package): update acho to version 2.7.2 ([07d529f](https://github.com/kikobeats/fetch-timeline-cli/commit/07d529f))
+* chore(package): update acho to version 2.8.0 ([78cb1ca](https://github.com/kikobeats/fetch-timeline-cli/commit/78cb1ca))
+* chore(package): update JSONStream to version 1.1.1 ([19d9330](https://github.com/kikobeats/fetch-timeline-cli/commit/19d9330))
+* chore(package): update update-notifier to version 0.6.1 ([29b5e5e](https://github.com/kikobeats/fetch-timeline-cli/commit/29b5e5e))
+* chore(package): update update-notifier to version 0.6.2 ([58cffeb](https://github.com/kikobeats/fetch-timeline-cli/commit/58cffeb))
+* chore(package): update update-notifier to version 0.6.3 ([9385738](https://github.com/kikobeats/fetch-timeline-cli/commit/9385738))
+
+
+
 <a name="0.3.5"></a>
 ## 0.3.5 (2016-02-16)
 
