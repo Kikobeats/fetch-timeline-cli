@@ -3,6 +3,7 @@
 'use strict'
 
 var fs = require('fs')
+var path = require('path')
 var Whoops = require('whoops')
 var format = require('util').format
 var pkg = require('../package.json')
@@ -15,7 +16,7 @@ require('update-notifier')({pkg: pkg}).notify()
 
 var cli = require('meow')({
   pkg: pkg,
-  help: fs.readFileSync(__dirname + '/help.txt', 'utf8')
+  help: fs.readFileSync(path.resolve(__dirname, 'help.txt'), 'utf8')
 }, {
   alias: {
     f: 'file',
@@ -44,7 +45,7 @@ function lineBreak () {
   process.stdout.write('\n')
 }
 
-var acho = require('acho')({
+var acho = require('acho').skin(require('acho-skin-cli'))({
   align: false,
   keyword: 'symbol'
 })
@@ -76,10 +77,8 @@ function getTwitterParams () {
   var params = {}
 
   if (identifier) {
-    if (typeof identifier === 'string')
-      params.screen_name = identifier
-    else
-      params.user_id = identifier
+    if (typeof identifier === 'string') params.screen_name = identifier
+    else params.user_id = identifier
   }
 
   params.limit = cli.flags.limit || cli.flags.l
