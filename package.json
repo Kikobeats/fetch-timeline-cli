@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "JSONStream": "~1.0.7",
-    "acho": "~3.0.0",
+    "acho": "~3.0.2",
     "acho-skin-cli": "~1.0.0",
     "end-of-stream": "~1.1.0",
     "existential": "~1.0.3",
