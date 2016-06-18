@@ -35,7 +35,7 @@
     "fetch-timeline": "~0.3.4",
     "meow": "~3.7.0",
     "multi-write-stream": "~2.0.1",
-    "update-notifier": "~1.0.0",
+    "update-notifier": "~1.0.1",
     "whoops": "~2.1.0"
   },
   "devDependencies": {
