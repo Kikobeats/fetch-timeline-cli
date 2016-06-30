@@ -27,7 +27,7 @@
     "user"
   ],
   "dependencies": {
-    "JSONStream": "~1.1.2",
+    "JSONStream": "~1.1.3",
     "acho": "~3.0.2",
     "acho-skin-cli": "~1.0.0",
     "end-of-stream": "~1.1.0",
