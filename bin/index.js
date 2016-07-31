@@ -4,7 +4,6 @@
 
 var fs = require('fs')
 var path = require('path')
-var Whoops = require('whoops')
 var format = require('util').format
 var pkg = require('../package.json')
 var JSONStream = require('JSONStream')
@@ -60,11 +59,10 @@ function exitOnError (err, code) {
 
 function checkEnv (envs) {
   var errors = []
-
   envs.forEach(function (env) {
     if (!process.env[env]) {
       var message = format("You need to provide '%s' as environment variable.", env)
-      errors.push(Whoops(message))
+      errors.push(new Error(message))
     }
   })
 
