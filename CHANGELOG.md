@@ -1,3 +1,21 @@
+<a name="0.3.7"></a>
+## 0.3.7 (2016-07-31)
+
+* Remove whoops unnecessary dep ([8e0ff4c](https://github.com/kikobeats/fetch-timeline-cli/commit/8e0ff4c))
+* chore(package): update acho to version 3.0.2 ([47d9e13](https://github.com/kikobeats/fetch-timeline-cli/commit/47d9e13))
+* chore(package): update JSONStream to version 1.1.2 ([31c5460](https://github.com/kikobeats/fetch-timeline-cli/commit/31c5460))
+* chore(package): update JSONStream to version 1.1.3 ([4a5e10c](https://github.com/kikobeats/fetch-timeline-cli/commit/4a5e10c))
+* chore(package): update JSONStream to version 1.1.4 ([5c9d998](https://github.com/kikobeats/fetch-timeline-cli/commit/5c9d998))
+* chore(package): update update-notifier to version 0.7.0 ([129fce5](https://github.com/kikobeats/fetch-timeline-cli/commit/129fce5))
+* chore(package): update update-notifier to version 1.0.0 ([2a1a786](https://github.com/kikobeats/fetch-timeline-cli/commit/2a1a786))
+* chore(package): update update-notifier to version 1.0.1 ([822b504](https://github.com/kikobeats/fetch-timeline-cli/commit/822b504))
+* chore(package): update update-notifier to version 1.0.2 ([9eeb097](https://github.com/kikobeats/fetch-timeline-cli/commit/9eeb097))
+* chore(package): update whoops to version 2.1.0 ([95a3d2c](https://github.com/kikobeats/fetch-timeline-cli/commit/95a3d2c))
+* chore(package): update whoops to version 2.2.0 ([80085cf](https://github.com/kikobeats/fetch-timeline-cli/commit/80085cf))
+* chore(package): update whoops to version 3.0.0 ([2da2675](https://github.com/kikobeats/fetch-timeline-cli/commit/2da2675))
+
+
+
 <a name="0.3.6"></a>
 ## 0.3.6 (2016-05-01)
 
