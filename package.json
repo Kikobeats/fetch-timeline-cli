@@ -41,7 +41,7 @@
     "git-dirty": "latest"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "scripts": {
     "clean": "rm -rf node_modules",
