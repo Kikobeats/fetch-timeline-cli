@@ -54,24 +54,6 @@
       ]
     },
     {
-      "component": "header",
-      "heading": "fetch-timeline-cli",
-      "subhead": "Fetch Twitter user's timeline from your terminal :zap:.",
-      "children": [
-        {
-          "component": "ui/TweetButton",
-          "text": "fetch-timeline-cli: Fetch Twitter user's timeline from your terminal :zap:.",
-          "url": ""
-        },
-        {
-          "component": "ui/GithubButton",
-          "user": "Kikobeats",
-          "repo": "fetch-timeline-cli"
-        }
-      ],
-      "text": "v0.3.7"
-    },
-    {
       "component": "article",
       "metadata": {
         "source": "github.readme"
