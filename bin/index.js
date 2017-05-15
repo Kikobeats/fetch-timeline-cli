@@ -2,28 +2,31 @@
 
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var format = require('util').format
-var pkg = require('../package.json')
-var JSONStream = require('JSONStream')
-var multi = require('multi-write-stream')
-var fetchTimeline = require('fetch-timeline')
-var existsDefault = require('existential-default')
+const fetchTimeline = require('fetch-timeline')
+const multi = require('multi-write-stream')
+const JSONStream = require('JSONStream')
+const omit = require('lodash.omit')
+const pick = require('lodash.pick')
+const path = require('path')
+const fs = require('fs')
 
-require('update-notifier')({pkg: pkg}).notify()
+const pkg = require('../package.json')
+require('update-notifier')({pkg}).notify()
 
-var cli = require('meow')({
-  pkg: pkg,
+const cli = require('meow')({
+  pkg,
   help: fs.readFileSync(path.resolve(__dirname, 'help.txt'), 'utf8')
 }, {
   alias: {
-    f: 'file',
-    s: 'save'
+    s: 'save',
+    l: 'limit'
   }
 })
 
-var CREDENTIALS = [
+const getIdentifier = params => params.screenName || params.userId
+const isString = str => typeof str === 'string'
+
+const CREDENTIALS = [
   'TWITTER_CONSUMER_KEY',
   'TWITTER_CONSUMER_SECRET',
   'TWITTER_ACCESS_TOKEN',
@@ -31,7 +34,7 @@ var CREDENTIALS = [
 ]
 
 Date.prototype.toYMD = function () {
-  var year, month, day
+  let year, month, day
   year = String(this.getFullYear())
   month = String(this.getMonth() + 1)
   if (month.length === 1) month = '0' + month
@@ -40,28 +43,24 @@ Date.prototype.toYMD = function () {
   return year + '-' + month + '-' + day
 }
 
-function lineBreak () {
-  process.stdout.write('\n')
-}
+const lineBreak = () => process.stdout.write('\n')
 
-var acho = require('acho').skin(require('acho-skin-cli'))({
+const log = require('acho').skin(require('acho-skin-cli'))({
   align: false,
   keyword: 'symbol'
 })
 
 function exitOnError (err, code) {
-  if (!Array.isArray(err)) err = [err]
-  err.forEach(function (err) {
-    acho.error(err)
-  })
+  const collection = [].concat(err)
+  collection.forEach(err => log.error(err.message || err))
   process.exit(code || 1)
 }
 
 function checkEnv (envs) {
-  var errors = []
+  const errors = []
   envs.forEach(function (env) {
     if (!process.env[env]) {
-      var message = format("You need to provide '%s' as environment variable.", env)
+      const message = `You need to provide '${env}'.`
       errors.push(new Error(message))
     }
   })
@@ -69,67 +68,55 @@ function checkEnv (envs) {
   if (errors.length > 0) return exitOnError(errors)
 }
 
-var identifier = cli.input.pop()
-
-function getTwitterParams () {
-  var params = {}
-
-  if (identifier) {
-    if (typeof identifier === 'string') params.screen_name = identifier
-    else params.user_id = identifier
-  }
-
-  params.limit = cli.flags.limit || cli.flags.l
-
-  var replies = existsDefault(cli.flags.replies, true)
-  var rts = existsDefault(cli.flags.rts, true)
-
-  params.include_rts = rts
-  params.exclude_replies = !replies
-
-  return params
-}
-
 lineBreak()
 checkEnv(CREDENTIALS)
 
-var params = getTwitterParams()
-
-var credentials = {
+const credentials = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   accessToken: process.env.TWITTER_ACCESS_TOKEN,
   accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 }
 
-var timeline = fetchTimeline(params, credentials)
-var writables = [ process.stdout ]
-var finalMessage
+const {flags} = cli
+const params = omit(flags, ['limit', 'save'])
+const opts = Object.assign(pick(flags, ['limit']), {credentials})
 
-if (cli.flags.save) {
-  var filename = cli.flags.file || [identifier, new Date().toYMD(), 'json'].join('.')
-  finalMessage = format("Saved at '%s'.", filename)
+const stream = fetchTimeline(params, opts)
+const writables = [ process.stdout ]
+const {save} = flags
+let endMessage
+
+if (save) {
+  const identifier = getIdentifier(params)
+  const filename = isString(save)
+    ? save
+    : `${identifier}.${new Date().toYMD()}.json`
+
+  endMessage = `Saved at '${filename}'.`
   writables.push(fs.createWriteStream(filename))
 }
 
-var writable = multi(writables)
+const writable = multi(writables)
 
-timeline
+stream
   .pipe(JSONStream.stringify('[', ',\n', ']\n', 2))
   .pipe(writable)
 
-timeline.on('error', function (err) {
+
+stream.on('error', function (err) {
   // TODO: Create a better error message with res headers:
   // X-Rate-Limit-Limit: the rate limit ceiling for that given request
   // X-Rate-Limit-Remaining: the number of requests left for the 15 minute window
   // X-Rate-Limit-Reset: the remaining window before the rate limit resets in UTC epoch seconds
-  var message = err.statusCode + ': ' + err.message
-  exitOnError(message, err.code)
+  const {statusCode, message:errMessage, code} = err
+  const message = `${statusCode}: ${errMessage}`
+  exitOnError(message, code)
 })
 
-if (finalMessage) {
-  timeline.on('end', function () {
+if (endMessage) {
+  stream.on('end', function () {
     lineBreak()
-    acho.success(finalMessage)
+    log.success(endMessage)
   })
 }
