@@ -1,0 +1,95 @@
+{
+  "name": "Kikobeats/fetch-timeline-cli",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Brutalist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BasicHeader",
+      "article": "article/MarkdownArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Consolas, \"Liberation Mono\", Menlo, Courier, monospace",
+    "heading": {},
+    "typeScale": [
+      48,
+      32,
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "fluid": true
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/Kikobeats/fetch-timeline-cli",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/fetch-timeline-cli",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "fetch-timeline-cli",
+      "subhead": "Fetch Twitter user's timeline from your terminal :zap:.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "fetch-timeline-cli: Fetch Twitter user's timeline from your terminal :zap:.",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "Kikobeats",
+          "repo": "fetch-timeline-cli"
+        }
+      ],
+      "text": "v0.3.7"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>Fetch Timeline CLI</h1>\n<p>\n  <br>\n  <img src=\"http://g.recordit.co/fUTguF6FTQ.gif\">\n  <br>\n</p>\n\n<p><img src=\"https://img.shields.io/github/tag/Kikobeats/fetch-timeline-cli.svg?style=flat-square\">\n<a href=\"https://david-dm.org/Kikobeats/fetch-timeline-cli\"><img src=\"http://img.shields.io/david/Kikobeats/fetch-timeline-cli.svg?style=flat-square\"></a>\n<a href=\"https://david-dm.org/Kikobeats/fetch-timeline-cli#info=devDependencies\"><img src=\"http://img.shields.io/david/dev/Kikobeats/fetch-timeline-cli.svg?style=flat-square\"></a>\n<a href=\"https://www.npmjs.org/package/fetch-timeline-cli\"><img src=\"http://img.shields.io/npm/dm/fetch-timeline-cli.svg?style=flat-square\"></a>\n<a href=\"https://paypal.me/Kikobeats\"><img src=\"https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square\"></a></p>\n<blockquote>\n<p>Fetch Twitter user&apos;s timeline from your terminal</p>\n</blockquote>\n<h2>Install</h2>\n<pre>npm install fetch-timeline-cli --global</pre><p>For know how to use, write <code>fetch-timeline --help</code></p>\n<h2>Related</h2>\n<ul>\n<li><a href=\"https://github.com/Kikobeats/fetch-timeline\">fetch-timeline</a> &#x2013; Readable Stream that content tweets fetched from a Twitter user timeline.</li>\n</ul>\n<h2>License</h2>\n<p>MIT &#xA9; <a href=\"http://kikobeats.com\">Kiko Beats</a></p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/Kikobeats/fetch-timeline-cli",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/Kikobeats",
+          "text": "Kikobeats"
+        }
+      ]
+    }
+  ]
+}
