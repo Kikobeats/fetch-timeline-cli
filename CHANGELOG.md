@@ -1,3 +1,20 @@
+<a name="1.0.0"></a>
+# 1.0.0 (2017-05-15)
+
+* Update compositor.json ([f294067](https://github.com/kikobeats/fetch-timeline-cli/commit/f294067))
+* Update compositor.json ([59969f1](https://github.com/kikobeats/fetch-timeline-cli/commit/59969f1))
+* Update deps ([881bbac](https://github.com/kikobeats/fetch-timeline-cli/commit/881bbac))
+* chore: drop support for Node.js 0.10 ([fd027fa](https://github.com/kikobeats/fetch-timeline-cli/commit/fd027fa))
+* chore(package): update acho to version 3.1.0 ([5ae72d1](https://github.com/kikobeats/fetch-timeline-cli/commit/5ae72d1))
+* chore(package): update acho to version 3.1.1 ([f095275](https://github.com/kikobeats/fetch-timeline-cli/commit/f095275))
+* chore(package): update JSONStream to version 1.2.1 ([360fff9](https://github.com/kikobeats/fetch-timeline-cli/commit/360fff9))
+
+
+### BREAKING CHANGE
+
+* This module no longer supports Node.js 0.10
+
+
 <a name="0.3.7"></a>
 ## 0.3.7 (2016-07-31)
 
