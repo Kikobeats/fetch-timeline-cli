@@ -1,3 +1,11 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2017-05-16)
+
+* Add limitDays ([174499e](https://github.com/kikobeats/fetch-timeline-cli/commit/174499e))
+* Output useful information ([8691bd5](https://github.com/kikobeats/fetch-timeline-cli/commit/8691bd5))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2017-05-15)
 
