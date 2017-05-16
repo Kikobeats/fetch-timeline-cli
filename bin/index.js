@@ -16,11 +16,6 @@ require('update-notifier')({pkg}).notify()
 const cli = require('meow')({
   pkg,
   help: fs.readFileSync(path.resolve(__dirname, 'help.txt'), 'utf8')
-}, {
-  alias: {
-    s: 'save',
-    l: 'limit'
-  }
 })
 
 const getIdentifier = params => params.screenName || params.userId
@@ -79,8 +74,8 @@ const credentials = {
 }
 
 const {flags} = cli
-const params = omit(flags, ['limit', 'save'])
-const opts = Object.assign(pick(flags, ['limit']), {credentials})
+const params = omit(flags, ['limit', 'save', 'limitDays'])
+const opts = Object.assign(pick(flags, ['limit', 'limitDays']), {credentials})
 
 const stream = fetchTimeline(params, opts)
 const writables = [ process.stdout ]

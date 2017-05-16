@@ -31,7 +31,7 @@
     "acho": "~3.2.1",
     "acho-skin-cli": "~1.0.0",
     "end-of-stream": "~1.4.0",
-    "fetch-timeline": "~1.0.0",
+    "fetch-timeline": "~1.1.0",
     "lodash.omit": "~4.5.0",
     "lodash.pick": "~4.4.0",
     "meow": "~3.7.0",
