@@ -5,8 +5,10 @@
 const fetchTimeline = require('fetch-timeline')
 const multi = require('multi-write-stream')
 const JSONStream = require('JSONStream')
+const prettyMs = require('pretty-ms')
 const omit = require('lodash.omit')
 const pick = require('lodash.pick')
+const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
 
@@ -109,9 +111,26 @@ stream.on('error', function (err) {
   exitOnError(message, code)
 })
 
-if (endMessage) {
-  stream.on('end', function () {
+stream.on('info', function(info) {
+  const {apiCalls, count, newerTweetDate, olderTweetDate} = info
+  const now = Date.now()
+  const newer = prettyMs(now - newerTweetDate.getTime())
+  const older = prettyMs(now - olderTweetDate.getTime())
+
+  const screenName = info.user.screen_name
+  const twitterUrl = `https://twitter.com/${screenName}`
+
+  setTimeout(function() {
     lineBreak()
-    log.success(endMessage)
-  })
-}
+    log.info(`${chalk.white('Total API calls  :')} ${apiCalls} calls`)
+    log.info(`${chalk.white('Total tweets     :')} ${count} tweets`)
+    log.info(`${chalk.white('Newer tweet date :')} ${newer}`)
+    log.info(`${chalk.white('Older tweet date :')} ${older}`)
+    log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
+
+    if (endMessage) {
+      lineBreak()
+      log.success(endMessage)
+    }
+  }, 10)
+})
