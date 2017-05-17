@@ -1,3 +1,10 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2017-05-17)
+
+* Update deps ([6a857e7](https://github.com/kikobeats/fetch-timeline-cli/commit/6a857e7))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-05-16)
 
