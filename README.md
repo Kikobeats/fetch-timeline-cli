@@ -2,7 +2,7 @@
 
 <p align="center">
   <br>
-  <img src="http://g.recordit.co/fUTguF6FTQ.gif" alt="fetch-timeline-cli">
+  <img src="https://d2ppvlu71ri8gs.cloudfront.net/items/0a0g0y3w2r3E3F0e2s0T/Screen%20Recording%202017-05-17%20at%2006.23%20pm.gif?v=77c21e63" alt="fetch-timeline-cli">
   <br>
 </p>
 
