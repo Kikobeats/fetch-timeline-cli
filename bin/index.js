@@ -132,5 +132,5 @@ stream.on('info', function(info) {
       lineBreak()
       log.success(endMessage)
     }
-  }, 10)
+  }, 250)
 })
