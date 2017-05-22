@@ -5,6 +5,7 @@
 const fetchTimeline = require('fetch-timeline')
 const multi = require('multi-write-stream')
 const JSONStream = require('JSONStream')
+const dateTime = require('date-time')
 const prettyMs = require('pretty-ms')
 const omit = require('lodash.omit')
 const pick = require('lodash.pick')
@@ -114,8 +115,11 @@ stream.on('error', function (err) {
 stream.on('info', function(info) {
   const {apiCalls, count, newerTweetDate, olderTweetDate} = info
   const now = Date.now()
-  const newer = prettyMs(now - newerTweetDate.getTime())
-  const older = prettyMs(now - olderTweetDate.getTime())
+
+  const newer = dateTime(newerTweetDate)
+  const older = dateTime(olderTweetDate)
+  const newerAgo = prettyMs(now - newerTweetDate.getTime())
+  const olderAgo = prettyMs(now - olderTweetDate.getTime())
 
   const screenName = info.user.screen_name
   const twitterUrl = `https://twitter.com/${screenName}`
@@ -124,8 +128,8 @@ stream.on('info', function(info) {
     lineBreak()
     log.info(`${chalk.white('Total API calls  :')} ${apiCalls} calls`)
     log.info(`${chalk.white('Total tweets     :')} ${count} tweets`)
-    log.info(`${chalk.white('Newer tweet date :')} ${newer}`)
-    log.info(`${chalk.white('Older tweet date :')} ${older}`)
+    log.info(`${chalk.white('Newer tweet date :')} ${newer} (${newerAgo})`)
+    log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
     log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
 
     if (endMessage) {
