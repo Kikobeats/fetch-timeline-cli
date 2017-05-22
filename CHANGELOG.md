@@ -1,3 +1,15 @@
+<a name="1.1.2"></a>
+## 1.1.2 (2017-05-22)
+
+* Add linter ([c40f2aa](https://github.com/kikobeats/fetch-timeline-cli/commit/c40f2aa))
+* Release 1.1.1 ([b4ea392](https://github.com/kikobeats/fetch-timeline-cli/commit/b4ea392))
+* Show original dates ([a51fea1](https://github.com/kikobeats/fetch-timeline-cli/commit/a51fea1))
+* Update compositor.json via compositor.io ([150a4cc](https://github.com/kikobeats/fetch-timeline-cli/commit/150a4cc))
+* Update deps ([c610530](https://github.com/kikobeats/fetch-timeline-cli/commit/c610530))
+* Update README.md ([46716ef](https://github.com/kikobeats/fetch-timeline-cli/commit/46716ef))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2017-05-17)
 
