@@ -3,6 +3,7 @@
 'use strict'
 
 const fetchTimeline = require('fetch-timeline')
+const formatDate = require('date-fns/format')
 const multi = require('multi-write-stream')
 const JSONStream = require('JSONStream')
 const dateTime = require('date-time')
@@ -24,22 +25,14 @@ const cli = require('meow')({
 const getIdentifier = params => params.screenName || params.userId
 const isString = str => typeof str === 'string'
 
+const fileDate = () => formatDate(Date.now(), 'YYYY-MM-DD')
+
 const CREDENTIALS = [
   'TWITTER_CONSUMER_KEY',
   'TWITTER_CONSUMER_SECRET',
   'TWITTER_ACCESS_TOKEN',
   'TWITTER_ACCESS_TOKEN_SECRET'
 ]
-
-Date.prototype.toYMD = function () {
-  let year, month, day
-  year = String(this.getFullYear())
-  month = String(this.getMonth() + 1)
-  if (month.length === 1) month = '0' + month
-  day = String(this.getDate())
-  if (day.length === 1) day = '0' + day
-  return year + '-' + month + '-' + day
-}
 
 const lineBreak = () => process.stdout.write('\n')
 
@@ -89,7 +82,7 @@ if (save) {
   const identifier = getIdentifier(params)
   const filename = isString(save)
     ? save
-    : `${identifier}.${new Date().toYMD()}.json`
+    : `${identifier}.${fileDate()}.json`
 
   endMessage = `Saved at '${filename}'.`
   writables.push(fs.createWriteStream(filename))
@@ -101,35 +94,37 @@ stream
   .pipe(JSONStream.stringify('[', ',\n', ']\n', 2))
   .pipe(writable)
 
-
 stream.on('error', function (err) {
   // TODO: Create a better error message with res headers:
   // X-Rate-Limit-Limit: the rate limit ceiling for that given request
   // X-Rate-Limit-Remaining: the number of requests left for the 15 minute window
   // X-Rate-Limit-Reset: the remaining window before the rate limit resets in UTC epoch seconds
-  const {statusCode, message:errMessage, code} = err
+  const {statusCode, message: errMessage, code} = err
   const message = `${statusCode}: ${errMessage}`
   exitOnError(message, code)
 })
 
-stream.on('info', function(info) {
+stream.on('info', function (info) {
   const {apiCalls, count, newerTweetDate, olderTweetDate} = info
-  const now = Date.now()
-
-  const newer = dateTime(newerTweetDate)
-  const older = dateTime(olderTweetDate)
-  const newerAgo = prettyMs(now - newerTweetDate.getTime())
-  const olderAgo = prettyMs(now - olderTweetDate.getTime())
-
   const screenName = info.user.screen_name
   const twitterUrl = `https://twitter.com/${screenName}`
 
-  setTimeout(function() {
+  setTimeout(function () {
     lineBreak()
     log.info(`${chalk.white('Total API calls  :')} ${apiCalls} calls`)
     log.info(`${chalk.white('Total tweets     :')} ${count} tweets`)
-    log.info(`${chalk.white('Newer tweet date :')} ${newer} (${newerAgo})`)
-    log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
+
+    if (count) {
+      const now = Date.now()
+      const newer = dateTime(newerTweetDate)
+      const older = dateTime(olderTweetDate)
+      const newerAgo = prettyMs(now - newerTweetDate.getTime())
+      const olderAgo = prettyMs(now - olderTweetDate.getTime())
+
+      log.info(`${chalk.white('Newer tweet date :')} ${newer} (${newerAgo})`)
+      log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
+    }
+
     log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
 
     if (endMessage) {
