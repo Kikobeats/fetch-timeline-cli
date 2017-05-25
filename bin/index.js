@@ -10,6 +10,7 @@ const dateTime = require('date-time')
 const prettyMs = require('pretty-ms')
 const omit = require('lodash.omit')
 const pick = require('lodash.pick')
+const get = require('lodash.get')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -106,8 +107,7 @@ stream.on('error', function (err) {
 
 stream.on('info', function (info) {
   const {apiCalls, count, newerTweetDate, olderTweetDate} = info
-  const screenName = info.user.screen_name
-  const twitterUrl = `https://twitter.com/${screenName}`
+  const screenName = get(info, 'user.screen_name')
 
   setTimeout(function () {
     lineBreak()
@@ -125,7 +125,10 @@ stream.on('info', function (info) {
       log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
     }
 
-    log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
+    if (screenName) {
+      const twitterUrl = `https://twitter.com/${screenName}`
+      log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
+    }
 
     if (endMessage) {
       lineBreak()
