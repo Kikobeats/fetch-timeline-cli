@@ -1,3 +1,10 @@
+<a name="1.1.3"></a>
+## 1.1.3 (2017-05-25)
+
+* Try to recover user information ([2b52944](https://github.com/kikobeats/fetch-timeline-cli/commit/2b52944))
+
+
+
 <a name="1.1.2"></a>
 ## 1.1.2 (2017-05-22)
 
