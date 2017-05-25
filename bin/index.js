@@ -76,7 +76,7 @@ const opts = Object.assign(pick(flags, ['limit', 'limitDays']), {credentials})
 
 const stream = fetchTimeline(params, opts)
 const writables = [ process.stdout ]
-const {save} = flags
+const {save, showInfo} = flags
 let endMessage
 
 if (save) {
@@ -105,34 +105,36 @@ stream.on('error', function (err) {
   exitOnError(message, code)
 })
 
-stream.on('info', function (info) {
-  const {apiCalls, count, newerTweetDate, olderTweetDate} = info
-  const screenName = get(info, 'user.screen_name')
+if (showInfo) {
+  stream.on('info', function (info) {
+    const {apiCalls, count, newerTweetDate, olderTweetDate} = info
+    const screenName = get(info, 'user.screen_name')
 
-  setTimeout(function () {
-    lineBreak()
-    log.info(`${chalk.white('Total API calls  :')} ${apiCalls} calls`)
-    log.info(`${chalk.white('Total tweets     :')} ${count} tweets`)
-
-    if (count) {
-      const now = Date.now()
-      const newer = dateTime(newerTweetDate)
-      const older = dateTime(olderTweetDate)
-      const newerAgo = prettyMs(now - newerTweetDate.getTime())
-      const olderAgo = prettyMs(now - olderTweetDate.getTime())
-
-      log.info(`${chalk.white('Newer tweet date :')} ${newer} (${newerAgo})`)
-      log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
-    }
-
-    if (screenName) {
-      const twitterUrl = `https://twitter.com/${screenName}`
-      log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
-    }
-
-    if (endMessage) {
+    setTimeout(function () {
       lineBreak()
-      log.success(endMessage)
-    }
-  }, 250)
-})
+      log.info(`${chalk.white('Total API calls  :')} ${apiCalls} calls`)
+      log.info(`${chalk.white('Total tweets     :')} ${count} tweets`)
+
+      if (count) {
+        const now = Date.now()
+        const newer = dateTime(newerTweetDate)
+        const older = dateTime(olderTweetDate)
+        const newerAgo = prettyMs(now - newerTweetDate.getTime())
+        const olderAgo = prettyMs(now - olderTweetDate.getTime())
+
+        log.info(`${chalk.white('Newer tweet date :')} ${newer} (${newerAgo})`)
+        log.info(`${chalk.white('Older tweet date :')} ${older} (${olderAgo})`)
+      }
+
+      if (screenName) {
+        const twitterUrl = `https://twitter.com/${screenName}`
+        log.info(`${chalk.white('User profile     :')} ${twitterUrl}`)
+      }
+
+      if (endMessage) {
+        lineBreak()
+        log.success(endMessage)
+      }
+    }, 250)
+  })
+}

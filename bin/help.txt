@@ -6,6 +6,8 @@ Params
   https://dev.twitter.com/rest/reference/get/statuses/user_timeline
 
 Options
+  --showInfo   Show useful information related with user fetched.
+
   --limit      Limit the number of tweets to get.
 
   --limitDays  Don't retrieve older tweets than the number of days from now.
@@ -13,4 +15,4 @@ Options
   --save       Save the output in a filename.
 
 Examples
-  $ fetch-timeline --user-name=kikobeats --count=200 --limit=3200
+  $ fetch-timeline --user-name=kikobeats --count=200 --limit=3200 --showInfo
