@@ -1,3 +1,10 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2017-05-25)
+
+* Add showInfo flag ([6dd490f](https://github.com/kikobeats/fetch-timeline-cli/commit/6dd490f))
+
+
+
 <a name="1.1.3"></a>
 ## 1.1.3 (2017-05-25)
 
