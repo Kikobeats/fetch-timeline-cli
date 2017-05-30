@@ -71,7 +71,7 @@ const credentials = {
 }
 
 const {flags} = cli
-const params = omit(flags, ['limit', 'save', 'limitDays'])
+const params = omit(flags, ['limit', 'save', 'limitDays', 'show_info'])
 const opts = Object.assign(pick(flags, ['limit', 'limitDays']), {credentials})
 
 const stream = fetchTimeline(params, opts)
