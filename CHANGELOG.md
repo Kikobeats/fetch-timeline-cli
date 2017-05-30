@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## 1.2.1 (2017-05-30)
+
+* Prevent send show_info to twitter API ([0a66753](https://github.com/kikobeats/fetch-timeline-cli/commit/0a66753))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-05-25)
 
