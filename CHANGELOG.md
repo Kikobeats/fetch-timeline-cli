@@ -1,3 +1,10 @@
+<a name="1.2.2"></a>
+## 1.2.2 (2017-09-12)
+
+* Update deps ([6805c14](https://github.com/kikobeats/fetch-timeline-cli/commit/6805c14))
+
+
+
 <a name="1.2.1"></a>
 ## 1.2.1 (2017-05-30)
 
