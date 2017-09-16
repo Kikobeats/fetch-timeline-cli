@@ -1,3 +1,11 @@
+<a name="1.2.3"></a>
+## 1.2.3 (2017-09-16)
+
+* Update deps ([c97255b](https://github.com/kikobeats/fetch-timeline-cli/commit/c97255b))
+* Update travis builds ([4e77aee](https://github.com/kikobeats/fetch-timeline-cli/commit/4e77aee))
+
+
+
 <a name="1.2.2"></a>
 ## 1.2.2 (2017-09-12)
 
