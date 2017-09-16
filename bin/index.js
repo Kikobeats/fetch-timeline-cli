@@ -37,7 +37,8 @@ const CREDENTIALS = [
 
 const lineBreak = () => process.stdout.write('\n')
 
-const log = require('acho').skin(require('acho-skin-cli'))({
+const log = require('acho')({
+  types: require('acho-skin-cli'),
   align: false,
   keyword: 'symbol'
 })
