@@ -15,4 +15,4 @@ Options
   --save       Save the output in a filename.
 
 Examples
-  $ fetch-timeline --user-name=kikobeats --count=200 --limit=3200 --showInfo
+  $ fetch-timeline --screen-name=kikobeats --count=200 --limit=3200 --showInfo
