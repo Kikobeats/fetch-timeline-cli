@@ -25,6 +25,7 @@ For know how to use, write `fetch-timeline --help`
 ## Related
 
 - [fetch-timeline](https://github.com/Kikobeats/fetch-timeline) – Readable Stream that content tweets fetched from a Twitter user timeline.
+- [tweets-microservice](https://github.com/Kikobeats/tweets-microservice) – Twitter timeline fetcher as service.
 
 ## License
 
