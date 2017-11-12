@@ -1,7 +1,5 @@
 # Fetch Timeline CLI
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Kikobeats/fetch-timeline-cli.svg)](https://greenkeeper.io/)
-
 <p align="center">
   <br>
   <img src="demo.gif" alt="fetch-timeline-cli">
