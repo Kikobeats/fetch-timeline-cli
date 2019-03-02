@@ -32,7 +32,7 @@
     "acho-skin-cli": "~2.0.1",
     "chalk": "~2.4.0",
     "date-fns": "~1.30.0",
-    "date-time": "~2.1.0",
+    "date-time": "~3.0.0",
     "end-of-stream": "~1.4.0",
     "fetch-timeline": "~1.1.3",
     "lodash.get": "~4.4.2",
