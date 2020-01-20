@@ -51,6 +51,9 @@
   "engines": {
     "node": ">= 6"
   },
+  "files": [
+    "bin"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules",
     "lint": "standard bin",
