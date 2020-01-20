@@ -1,3 +1,31 @@
+## 1.3.0 (2020-01-20)
+
+* build: add files ([d0389ac](https://github.com/kikobeats/fetch-timeline-cli/commit/d0389ac))
+* build: update dependencies ([5bc5df8](https://github.com/kikobeats/fetch-timeline-cli/commit/5bc5df8))
+* fix(package): update chalk to version 2.4.0 ([b11d488](https://github.com/kikobeats/fetch-timeline-cli/commit/b11d488))
+* fix(package): update date-fns to version 1.30.0 ([fc09903](https://github.com/kikobeats/fetch-timeline-cli/commit/fc09903))
+* fix(package): update date-time to version 3.0.0 ([1ae64fd](https://github.com/kikobeats/fetch-timeline-cli/commit/1ae64fd))
+* fix(package): update date-time to version 3.1.0 ([e9ec194](https://github.com/kikobeats/fetch-timeline-cli/commit/e9ec194))
+* fix(package): update meow to version 4.0.0 ([3f146f8](https://github.com/kikobeats/fetch-timeline-cli/commit/3f146f8))
+* fix(package): update meow to version 5.0.0 ([4fd3adb](https://github.com/kikobeats/fetch-timeline-cli/commit/4fd3adb))
+* fix(package): update pretty-ms to version 3.1.0 ([eef12db](https://github.com/kikobeats/fetch-timeline-cli/commit/eef12db))
+* fix(package): update pretty-ms to version 3.2.0 ([b71794f](https://github.com/kikobeats/fetch-timeline-cli/commit/b71794f))
+* fix(package): update pretty-ms to version 4.0.0 ([2111dfc](https://github.com/kikobeats/fetch-timeline-cli/commit/2111dfc))
+* fix(package): update pretty-ms to version 5.0.0 ([9a3d0ef](https://github.com/kikobeats/fetch-timeline-cli/commit/9a3d0ef))
+* fix(package): update update-notifier to version 2.4.0 ([ff561c4](https://github.com/kikobeats/fetch-timeline-cli/commit/ff561c4))
+* fix(package): update update-notifier to version 2.5.0 ([ec1de6e](https://github.com/kikobeats/fetch-timeline-cli/commit/ec1de6e))
+* fix(package): update update-notifier to version 2.6.0 ([1e6a9e6](https://github.com/kikobeats/fetch-timeline-cli/commit/1e6a9e6))
+* Fix demo ([5c64fb5](https://github.com/kikobeats/fetch-timeline-cli/commit/5c64fb5))
+* Update compositor.json via compositor.io ([a665427](https://github.com/kikobeats/fetch-timeline-cli/commit/a665427))
+* Update compositor.json via compositor.io ([d552ff4](https://github.com/kikobeats/fetch-timeline-cli/commit/d552ff4))
+* Update help ([1fa0f92](https://github.com/kikobeats/fetch-timeline-cli/commit/1fa0f92))
+* Update README.md ([4d181f8](https://github.com/kikobeats/fetch-timeline-cli/commit/4d181f8))
+* Update README.md ([a37c6e5](https://github.com/kikobeats/fetch-timeline-cli/commit/a37c6e5))
+* docs(readme): add Greenkeeper badge ([1661bf6](https://github.com/kikobeats/fetch-timeline-cli/commit/1661bf6))
+* chore(package): update dependencies ([7ca46b0](https://github.com/kikobeats/fetch-timeline-cli/commit/7ca46b0))
+
+
+
 <a name="1.2.3"></a>
 ## 1.2.3 (2017-09-16)
 
