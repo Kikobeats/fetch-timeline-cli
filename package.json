@@ -40,7 +40,7 @@
     "lodash.pick": "~4.4.0",
     "meow": "~6.0.0",
     "multi-write-stream": "~2.0.1",
-    "pretty-ms": "~5.1.0",
+    "pretty-ms": "~6.0.0",
     "update-notifier": "~4.0.0"
   },
   "devDependencies": {
