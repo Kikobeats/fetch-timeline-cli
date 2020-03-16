@@ -31,7 +31,7 @@
     "acho": "~4.0.4",
     "acho-skin-cli": "~2.0.1",
     "chalk": "~3.0.0",
-    "date-fns": "~2.10.0",
+    "date-fns": "~2.11.0",
     "date-time": "~3.1.0",
     "end-of-stream": "~1.4.4",
     "fetch-timeline": "~1.2.0",
